@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="org.uowt.manager.dao.MngGroupDao">
+	<select id="showGroup" resultMap="ResultGroupInfo">
+		select * from group_index;
+	</select>
+	
+	<resultMap type="org.uowt.front.entity.GroupInfo" id="ResultGroupInfo">
+		<collection property="gimgs" column="id" select="showGroupImg" ofType="org.uowt.front.entity.GroupImg">
+			<result property="url" column="url"/>
+			<result property="moudle" column="moudle"/> 
+		</collection>
+	</resultMap>
+	
+	<select id="showGroupImg" resultType="org.uowt.front.entity.GroupImg">
+		select * from group_img;
+	</select>
+	
+	<insert id="addGroupImg" parameterType="org.uowt.front.entity.GroupImg">
+		insert into group_img(url,module) values("","");
+	</insert>
+	<delete id="deleteGroupImg" >
+		delete from group_img where id in 
+		 (
+		     select a.id from 
+		     (
+		         select max(id) id from group_img a 
+		     ) a
+		 )
+	</delete>
+	
+	
+	<update id="updateContent" parameterType="org.uowt.front.entity.GroupInfo">
+		update group_index set content=#{content}
+	</update>
+	
+	<update id="updateGroupImgAll" parameterType="java.util.List">
+		<foreach collection="list" item="groupImg" separator=";">
+			update group_img set module=#{module} where id=#{id}
+		</foreach>
+	</update>
+	
+	<select id="findGroupById" parameterType="int" resultType="org.uowt.front.entity.GroupImg">
+		select * from group_img where id=#{id}
+	</select>
+	
+	<update id="updateGroupImg" parameterType="org.uowt.front.entity.GroupImg">
+		update group_img set module=#{module},url=#{url} where id=#{id}
+	</update>
+</mapper>
+
+
+

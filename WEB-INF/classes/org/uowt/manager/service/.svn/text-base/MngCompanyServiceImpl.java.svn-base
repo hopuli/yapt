@@ -1,0 +1,26 @@
+package org.uowt.manager.service;
+
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Service;
+import org.uowt.front.entity.CompanyInfo;
+import org.uowt.manager.dao.MngCompanyDao;
+import org.uowt.manager.entity.MngResultBean;
+
+@Service
+public class MngCompanyServiceImpl implements MngCompanyService{
+	
+	@Resource 
+	private MngCompanyDao dao;
+	public CompanyInfo showCompanyInfo() {
+		return dao.showCompanyInfo();
+	}
+	public void updateCompanyInfo(CompanyInfo comInfo) {
+		dao.updateCompanyInfo(comInfo);
+	}
+	public void updateVideo(String videourl) {
+		// TODO Auto-generated method stub
+		dao.updateVideo(videourl);
+	}
+		
+}

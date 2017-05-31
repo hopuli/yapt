@@ -1,0 +1,38 @@
+package org.uowt.manager.controller;
+
+import java.util.List;
+
+import javax.annotation.Resource;
+import javax.servlet.jsp.tagext.PageData;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+import org.uowt.front.entity.Menu;
+import org.uowt.manager.entity.CtMenuForm;
+import org.uowt.manager.service.MngCtMenuService;
+
+@Controller
+@RequestMapping("/mng/ctmenu")
+public class MngCtMenuController {
+	@Resource
+	private MngCtMenuService mngCtMenuService;
+	
+	@RequestMapping("showCtMenuOne.do")
+	public ModelAndView showMenuOne(Integer menu_msg){
+		
+		ModelAndView mav = new ModelAndView("manager/menuEdit");
+		List<Menu> menus = mngCtMenuService.listMenuOne();
+		if(menu_msg!=null && menu_msg==11){
+			mav.addObject("menu_msg", "修改成功");
+		}
+		mav.addObject("ct_menus",menus);
+		return mav;
+	}
+	@RequestMapping("updateCtMenu.do")
+	public String updateMenu(CtMenuForm ctMenuForm){
+		List<Menu> menus = ctMenuForm.getMenus();
+		mngCtMenuService.updateMenu(menus);
+		return "forward:showCtMenuOne.do?menu_msg=11";
+	}
+}

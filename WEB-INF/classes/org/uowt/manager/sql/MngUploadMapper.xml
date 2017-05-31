@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="org.uowt.manager.dao.MngUploadDao">
+	<update id="updateImageText" >
+		update ${tableName} set 
+		<if test='imageTextInfo.url!=null and imageTextInfo.url!=""'>
+			url=#{imageTextInfo.url},
+		</if>
+		text=#{imageTextInfo.text},
+		text2=#{imageTextInfo.text2},
+		text3=#{imageTextInfo.text3},
+		text4=#{imageTextInfo.text4},
+		text5=#{imageTextInfo.text5}
+		where id=#{imageTextInfo.id}
+	</update>
+	<select id="showImageText" resultType="org.uowt.manager.entity.ImageTextInfo">
+		select * from ${tableName}
+	</select>
+</mapper>
+
+
+

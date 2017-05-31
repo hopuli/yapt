@@ -1,0 +1,10 @@
+package org.uowt.manager.service;
+
+import java.util.List;
+
+import org.uowt.manager.entity.MngNewsType;
+
+public interface MngNewsService {
+	public List<MngNewsType> findNewsType();
+	public List<MngNewsType> findNewsTypeTwo(Integer parentid);
+}

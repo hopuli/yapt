@@ -1,0 +1,84 @@
+package org.uowt.manager.controller;
+
+
+import java.util.List;
+
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
+import org.uowt.front.service.UserService;
+import org.uowt.manager.entity.MngMenu;
+import org.uowt.manager.entity.MngResultBean;
+import org.uowt.manager.entity.MngUser;
+import org.uowt.manager.service.MngIndexService;
+
+
+@Controller
+@RequestMapping("mng")
+public class MngIndexController {
+	@Resource
+	private MngIndexService mngIndexService;
+	@Resource
+	private UserService userService;
+	
+	
+	private final Logger logger = LoggerFactory.getLogger(MngIndexController.class);
+	
+	@RequestMapping("login")
+	public ModelAndView toLogin(HttpServletRequest request){
+		ModelAndView mav = new ModelAndView("manager/mngLogin");
+		//String login_timeout = (String) request.getAttribute("login_timeout");
+		String login_timeout = (String) request.getParameter("login_timeout");
+		//request.getSession().setAttribute("sysSrc", request.getContextPath());
+		if(login_timeout !=null && "1".equals(login_timeout)){
+			mav.addObject("login_timeout", "用户登录失效，请重新登陆！");
+		}
+		return mav;
+	}
+	
+	@RequestMapping("checkLogin")
+	@ResponseBody
+	public MngResultBean execute(HttpServletRequest request,String username,String password){
+		logger.info("用户验证开始！");
+		return userService.checkLogin(request, username, password);
+	}
+	
+	@RequestMapping("userout.do")
+	public String userOut(Model model,HttpServletRequest request){
+		request.getSession().setAttribute("mngUser",null);
+		return "forward:login.do?login_timeout=1";
+	}
+	
+	@RequestMapping("home")
+	public String toHome(Model model,HttpServletRequest request){
+		MngUser mngUser = (MngUser) request.getSession().getAttribute("mngUser");
+		model.addAttribute("mngUser", mngUser);
+		return "manager/mnghome";
+	}
+	
+	
+	@RequestMapping("listMenu.do")
+	@ResponseBody
+	public MngResultBean listMenu(){
+		MngResultBean result = new MngResultBean();
+		List<MngMenu> menus = mngIndexService.ListMenu();
+		result.setData(menus);
+		result.setStatus(0);
+		return result;
+	}
+	@RequestMapping("listTwoMenu.do")
+	@ResponseBody
+	public MngResultBean listTwoMenu(Integer  parentId){
+		MngResultBean result = new MngResultBean();
+		List<MngMenu> menus = mngIndexService.ListTwoMenu(parentId);
+		result.setData(menus);
+		return result;
+	}
+}

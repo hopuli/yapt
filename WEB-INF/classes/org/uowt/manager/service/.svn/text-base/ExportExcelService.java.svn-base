@@ -1,0 +1,7 @@
+package org.uowt.manager.service;
+
+import javax.servlet.ServletOutputStream;
+
+public interface ExportExcelService {
+	 public void exportExcel(String hql,String [] titles,ServletOutputStream outputStream);  
+}

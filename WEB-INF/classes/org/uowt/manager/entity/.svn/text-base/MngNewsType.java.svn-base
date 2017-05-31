@@ -1,0 +1,48 @@
+package org.uowt.manager.entity;
+
+import java.sql.Date;
+
+public class MngNewsType {
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	public Integer getParentid() {
+		return parentid;
+	}
+	public void setParentid(Integer parentid) {
+		this.parentid = parentid;
+	}
+	public String getTypename() {
+		return typename;
+	}
+	public void setTypename(String typename) {
+		this.typename = typename;
+	}
+	public Integer getLevel() {
+		return level;
+	}
+	public void setLevel(Integer level) {
+		this.level = level;
+	}
+	public Integer getRank() {
+		return rank;
+	}
+	public void setRank(Integer rank) {
+		this.rank = rank;
+	}
+	public Date getCreatetime() {
+		return createtime;
+	}
+	public void setCreatetime(Date createtime) {
+		this.createtime = createtime;
+	}
+	private Integer id;
+	private Integer parentid;
+	private String typename;
+	private Integer level;
+	private Integer rank;
+	private Date createtime;
+}

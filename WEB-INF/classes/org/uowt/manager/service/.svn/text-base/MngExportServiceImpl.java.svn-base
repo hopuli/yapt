@@ -1,0 +1,20 @@
+package org.uowt.manager.service;
+
+import java.util.List;
+
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Service;
+import org.uowt.manager.dao.MngExportDao;
+import org.uowt.manager.util.PageData;
+
+@Service
+public class MngExportServiceImpl implements MngExportService{
+	
+	@Resource
+	private MngExportDao dao;
+	
+	public List<PageData> listM(PageData pd) throws Exception{  
+        return (List<PageData>)dao.findForList("MemberMapper.memberList", pd);  
+    }
+}

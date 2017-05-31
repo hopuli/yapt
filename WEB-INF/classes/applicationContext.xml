@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:util="http://www.springframework.org/schema/util"  
+	xmlns:jee="http://www.springframework.org/schema/jee" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:jpa="http://www.springframework.org/schema/data/jpa" xmlns:aop="http://www.springframework.org/schema/aop"
+	 xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.2.xsd
+		http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.2.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd
+		http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa-1.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd">
+
+
+<!-- 使jsp能访问到静态资源 -->
+<mvc:resources mapping="/**" location="/**" />
+
+
+<bean  
+    class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">  
+    <property name="locations">  
+        <list>  
+            <value>classpath:jdbc.properties</value>  
+        </list>  
+    </property>  
+</bean>
+
+<bean id="dbcp" 
+	class="org.apache.commons.dbcp.BasicDataSource">
+	<property name="username">
+		<value>${jdbc.username}</value>
+	</property>
+	<property name="password" >
+		<value>${jdbc.password}</value>
+	</property>
+	<property name="driverClassName" >
+		<value>${jdbc.driver}</value>
+	</property>
+	<property name="url" >
+		<value>${jdbc.url}</value>
+	</property>
+</bean>
+
+<bean id="ssf" 
+	class="org.mybatis.spring.SqlSessionFactoryBean">
+	<property name="dataSource" ref="dbcp">
+	</property>
+	<property name="mapperLocations">
+		<list>
+			<value>classpath:org/uowt/front/sql/*.xml</value>
+			<value>classpath:org/uowt/manager/sql/*.xml</value>
+		</list>
+	</property>
+</bean>
+
+<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+	<property name="basePackage" value="org.uowt.front.dao,org.uowt.manager.dao">
+	</property>
+	<!-- 自动注入sqlsessionfactory -->
+</bean>
+
+
+<!-- 开启扫描,扫描Controller,Service组件 -->
+<context:component-scan 
+	base-package="org.uowt"/>
+
+<!-- handlermapping,支持@RequestMapping,@ResponseBody,@Exceptionhanlder -->
+<mvc:annotation-driven />
+<mvc:view-controller path="/uowt"  view-name="redirect:/uowt/index/" />
+
+<bean id="viewResovler" 
+	class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	<property name="prefix" value="/">
+	</property>
+	<property name="suffix" value=".jsp">
+	</property>
+</bean>
+
+<mvc:view-controller path="/login.do" view-name="/ywgw/mng/login.do"/>
+
+
+<!-- <mvc:interceptors>
+	<mvc:interceptor>
+		<mvc:mapping path="/mng/*"/>
+		<mvc:mapping path="/mng/*/*"/>
+		<mvc:mapping path="/mng/*/*/*"/>
+		<mvc:exclude-mapping path="/mng/login"/>
+		<mvc:exclude-mapping path="/mng/checkLogin"/>
+		<mvc:exclude-mapping path="/mng/userout"/>
+		<bean class="org.uowt.manager.interceptor.CheckLoginInterceptor"></bean>
+	</mvc:interceptor>
+	<mvc:interceptor>
+		<mvc:mapping path="/**"/>
+		<bean class="org.uowt.manager.interceptor.SysSrcInterceptor"></bean>
+	</mvc:interceptor>
+</mvc:interceptors> -->
+
+<!-- 多部分文件上传 -->
+<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+     <property name="maxUploadSize" value="904857600000" />
+     <property name="maxInMemorySize" value="4096" />
+     <property name="defaultEncoding" value="UTF-8"></property>
+</bean>
+
+<!-- 配置事物管理组件 -->
+<bean id="txManager" 
+ class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+	<property name="dataSource" ref="dbcp"></property>
+</bean>
+<!-- 开启事物注解标记@Transactional -->
+<!-- 当调用带@Transactional标记的方法时，将txManager事物管理功能切入进去 -->
+<tx:annotation-driven 
+	transaction-manager="txManager"/>
+<!-- 日志管理 -->
+<aop:aspectj-autoproxy proxy-target-class="true">  
+</aop:aspectj-autoproxy>  
+	
+</beans>
+

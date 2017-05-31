@@ -1,0 +1,40 @@
+package org.uowt.manager.service;
+
+import java.util.List;
+
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Service;
+import org.uowt.front.entity.PeopleInfo;
+import org.uowt.manager.dao.MngPeopleDao;
+
+@Service
+public class MngPeopleServiceImpl implements MngPeopleService{
+	@Resource
+	private MngPeopleDao dao;
+	
+	public List<PeopleInfo> findAllPeople() {
+		return dao.findAllPeople();
+	}
+
+	
+
+	public void addPeople(PeopleInfo peopleInfo) {
+		// TODO Auto-generated method stub
+		dao.addPeople(peopleInfo);
+	}
+
+
+
+	public void deletePeople(Integer id) {
+		// TODO Auto-generated method stub
+		dao.deletePeople(id);
+	}
+
+
+
+	public PeopleInfo findPeopleByName(String name) {
+		// TODO Auto-generated method stub
+		return dao.findPeopleByName(name);
+	}
+}

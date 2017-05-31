@@ -1,0 +1,10 @@
+package org.uowt.manager.dao;
+
+import java.util.List;
+
+import org.uowt.manager.entity.MngNewsType;
+
+public interface MngNewsDao {
+	public List<MngNewsType> findNewsType();
+	public List<MngNewsType> findNewsTypeTwo(Integer parentid);
+}

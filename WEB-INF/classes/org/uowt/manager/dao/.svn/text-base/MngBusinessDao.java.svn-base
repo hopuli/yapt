@@ -1,0 +1,13 @@
+package org.uowt.manager.dao;
+
+import java.util.List;
+
+import org.uowt.front.entity.BusinessInfo;
+
+public interface MngBusinessDao {
+	public List<BusinessInfo> showBusiness();
+	public BusinessInfo findBusById(Integer id);
+	public void updateBus(BusinessInfo busInfo);
+	public void updateBuses(List<BusinessInfo>  busesInfo);
+	
+}

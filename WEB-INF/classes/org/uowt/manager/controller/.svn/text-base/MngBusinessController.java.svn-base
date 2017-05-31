@@ -1,0 +1,55 @@
+package org.uowt.manager.controller;
+
+import java.util.List;
+
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
+import org.uowt.front.entity.BusinessInfo;
+import org.uowt.manager.entity.BusinessForm;
+import org.uowt.manager.entity.MngResultBean;
+import org.uowt.manager.service.MngBusinessService;
+
+
+@Controller
+@RequestMapping("mng/business")
+public class MngBusinessController {
+	@Resource
+	private MngBusinessService businessService;
+	
+	@RequestMapping("toBusiness.do")
+	public ModelAndView toBusiness(){
+		ModelAndView mav = new ModelAndView("manager/business");
+		List<BusinessInfo> busInfo = businessService.showBusiness();
+		mav.addObject("busInfo", busInfo);
+		return mav;
+	}
+	
+	@RequestMapping("findBusById.do")
+	@ResponseBody
+	public MngResultBean findBusById(Integer id){
+		MngResultBean result = new MngResultBean();
+		BusinessInfo busInfo =  businessService.findBusById(id);
+		result.setData(busInfo);
+		return result;
+	}
+	
+	@RequestMapping("updateBus.do")
+	@ResponseBody
+	public MngResultBean updateBus(BusinessInfo bus){
+		MngResultBean result = new MngResultBean();
+		businessService.updateBus(bus);
+		return result;
+	}
+	
+	@RequestMapping("updateBuses.do")
+	@ResponseBody
+	public MngResultBean updateBuses(BusinessForm busForm){
+		MngResultBean result = new MngResultBean();
+		businessService.updateBuses(busForm.getBuses());
+		return result;
+	}
+}

@@ -1,0 +1,8 @@
+package org.uowt.manager.dao;
+
+import org.uowt.manager.entity.MngUser;
+
+public interface MngPersonalDao {
+	public MngUser showUser(Integer user_id);
+	public MngUser updatePersonal(MngUser mngUser);
+}

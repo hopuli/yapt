@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="org.uowt.manager.dao.MngPeopleDao">
+	<select id="findAllPeople" resultType="org.uowt.front.entity.PeopleInfo">
+		select * from people  where status=0 order by id
+	</select>
+	
+	<insert id="addPeople" parameterType="org.uowt.front.entity.PeopleInfo">
+		insert into people(name,phone,mail) values(#{name},#{phone},#{mail})
+	</insert>
+	
+	<update id="deletePeople" parameterType="int">
+		update people  set status=1 where id = #{id}
+	</update>
+	
+	
+	<select id="findPeopleByName" parameterType="string" resultType="org.uowt.front.entity.PeopleInfo">
+		select * from people where status=0 and name=#{name}
+	</select>
+</mapper>
+
+
+

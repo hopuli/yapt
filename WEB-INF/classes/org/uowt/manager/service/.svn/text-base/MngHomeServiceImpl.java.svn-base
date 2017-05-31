@@ -1,0 +1,13 @@
+package org.uowt.manager.service;
+
+import java.util.List;
+
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Service;
+import org.uowt.front.entity.Menu;
+import org.uowt.manager.dao.MngHomeDao;
+
+@Service
+public class MngHomeServiceImpl implements MngHomeService{
+}

@@ -1,0 +1,43 @@
+package org.uowt.manager.controller;
+
+import java.util.List;
+
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.uowt.manager.entity.MngResultBean;
+import org.uowt.manager.entity.MngUser;
+import org.uowt.manager.service.MngUserService;
+
+
+@Controller
+@RequestMapping("mng/user")
+public class MngUserController {
+	@Resource
+	private MngUserService mngUserService;
+	
+	@RequestMapping("showUsers.do")
+	public String showUsers(Model model){
+		List<MngUser> users = mngUserService.showUsers();
+		model.addAttribute("mngUsers", users);
+		return "manager/mnguser";
+	}
+	
+	@RequestMapping("showUser.do")
+	public String showUser(Model model,Integer user_id){
+		MngUser mngUser = mngUserService.showUser(user_id);
+		model.addAttribute("user", mngUser);
+		return "manager/updateMnguser";
+	}
+	
+	@RequestMapping("updateUser.do")
+	@ResponseBody
+	public MngResultBean updateUser(MngUser mngUser){
+		MngResultBean result = new MngResultBean();
+		mngUserService.updateUser(mngUser);
+		return result;
+	}
+}

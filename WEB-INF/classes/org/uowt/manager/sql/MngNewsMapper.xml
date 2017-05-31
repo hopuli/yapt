@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="org.uowt.manager.dao.MngNewsDao">
+	<select id="findNewsType" resultType="org.uowt.manager.entity.MngNewsType">
+		select * from mng_news_type where level = 1;
+	</select>
+	<select id="findNewsTypeTwo" parameterType="int" 
+		resultType="org.uowt.manager.entity.MngNewsType">
+		select * from mng_news_type where parentid = #{parentid}
+	</select>
+</mapper>
+
+
+

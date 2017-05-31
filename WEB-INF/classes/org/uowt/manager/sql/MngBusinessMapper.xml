@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="org.uowt.manager.dao.MngBusinessDao">
+	<select id="showBusiness" resultType="org.uowt.front.entity.BusinessInfo">
+		select * from business
+	</select>
+	
+	<select id="findBusById" parameterType="int" resultType="org.uowt.front.entity.BusinessInfo">
+		select * from business where id = #{id}
+	</select>
+	
+	<update id="updateBus" parameterType="org.uowt.front.entity.BusinessInfo">
+		update business set title=#{title},content=#{content} where id=#{id}
+	</update>
+	
+	<update id="updateBuses" parameterType="java.util.List">
+		<foreach collection="list" item="businessInfo" separator=";">
+			update business set title=#{businessInfo.title} where id=#{businessInfo.id}
+		</foreach>
+	</update>
+</mapper>
+
+
+

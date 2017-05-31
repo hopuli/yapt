@@ -1,0 +1,45 @@
+package org.uowt.manager.service;
+
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Service;
+import org.uowt.front.entity.GroupImg;
+import org.uowt.front.entity.GroupInfo;
+import org.uowt.manager.dao.MngGroupDao;
+
+@Service
+public class MngGroupServiceImpl implements MngGroupService{
+	
+	@Resource
+	private MngGroupDao dao;
+	
+	public GroupInfo showGroup() {
+		// TODO Auto-generated method stub
+		return dao.showGroup();
+	}
+
+	public void updateContent(GroupInfo groupInfo) {
+		// TODO Auto-generated method stub
+		dao.updateContent(groupInfo);
+	}
+
+	public void updateGroupImg(GroupImg gimg) {
+		// TODO Auto-generated method stub
+		dao.updateGroupImg(gimg);
+	}
+
+	public void addGroupImg() {
+		// TODO Auto-generated method stub
+		dao.addGroupImg();
+	}
+
+	public void deleteGroupImg() {
+		// TODO Auto-generated method stub
+		dao.deleteGroupImg();
+	}
+
+	public GroupImg findGroupImgById(Integer id) {
+		// TODO Auto-generated method stub
+		return dao.findGroupImgById(id);
+	}
+}

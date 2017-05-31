@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/yapt/!svn/ver/2/yapt/src/org/uowt/manager/interceptor
+END
+SysSrcInterceptor.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/yapt/!svn/ver/2/yapt/src/org/uowt/manager/interceptor/SysSrcInterceptor.java
+END
+CrossOriginFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/yapt/!svn/ver/5/yapt/src/org/uowt/manager/interceptor/CrossOriginFilter.java
+END
+CheckLoginInterceptor.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/yapt/!svn/ver/5/yapt/src/org/uowt/manager/interceptor/CheckLoginInterceptor.java
+END
+LogInterceptor.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/yapt/!svn/ver/6/yapt/src/org/uowt/manager/interceptor/LogInterceptor.java
+END

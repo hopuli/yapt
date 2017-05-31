@@ -1,0 +1,9 @@
+package org.uowt.manager.service;
+
+import org.uowt.front.entity.CompanyInfo;
+
+public interface MngCompanyService {
+	public CompanyInfo showCompanyInfo();
+	public void updateCompanyInfo(CompanyInfo comInfo);
+	public void updateVideo(String videourl);
+}

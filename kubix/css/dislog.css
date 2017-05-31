@@ -1,0 +1,130 @@
+#chcore_dialog .loadingbg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: 0.6;
+}
+#chcore_dialog .loadingcontent {
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  z-index: 10001;
+  width: auto;
+  overflow: hidden;
+  background-color: #FAFAFC;
+  text-align: center;
+  border-radius: 3px;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+#chcore_dialog .loadingcontent .img {
+  width: 40px;
+  height: 40px;
+  margin: auto;
+  margin-top: 5px;
+}
+#chcore_dialog .loadingcontent .contenthtml {
+  padding: 5px;
+}
+#chcore_dialog .alertbg {
+  position: fixed;
+  top: 10%;
+  right: 25%;
+  z-index: 10001;
+  width: auto;
+  width: 30%;
+  overflow: hidden;
+  background: url(../images/ok.png) 10% center no-repeat;
+  background-color: #FFFFFF;
+  color: #000;
+  text-align: center;
+ /* opacity: 0.6;*/
+  border-radius: 3px;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+#chcore_dialog .alertcontent {
+  padding: 15px 60px;
+  font-size: 18px;
+  color: #000000;
+  text-align: center;
+  word-wrap: break-word;
+  word-break: break-all;
+
+}
+#chcore_dialog .confirmbg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: 0.6;
+}
+#chcore_dialog .confirmcontent {
+  position: fixed;
+  top: 30%;
+  left: 50%;
+  z-index: 10001;
+  width: 80%;
+  overflow: hidden;
+  background-color: #FAFAFC;
+  text-align: center;
+  border-radius: 3px;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+#chcore_dialog .confirmcontent .contenthtml {
+  padding: 40px 0;
+  text-align: center;
+  font-size: 0.8rem;
+  color: #000;
+  position: relative;
+}
+#chcore_dialog .confirmcontent .contenthtml:after {
+  content: '';
+  width: 100%;
+  height: 1px;
+  background: #cbcbcb;
+  -webkit-transform: scaleY(0.5);
+  transform: scaleY(0.5);
+  left: 0;
+  position: absolute;
+  bottom: 0;
+}
+#chcore_dialog .confirmcontent .btn {
+  width: 100%;
+  height: 51px;
+  text-align: center;
+  line-height: 50px;
+  color: #0505E3;
+  background: #f1f1f1;
+}
+#chcore_dialog .confirmcontent .btn .cancelbtn {
+  float: left;
+  width: 50%;
+  border-radius: 0 0 0 5px;
+  position: relative;
+}
+#chcore_dialog .confirmcontent .btn .cancelbtn:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 1px;
+  background: #cbcbcb;
+  -webkit-transform: scaleX(0.5);
+  transform: scaleX(0.5);
+}
+#chcore_dialog .confirmcontent .btn .okbtn {
+  float: left;
+  width: 50%;
+  border-radius: 0 0 5px 0;
+}
+/*#chcore_dialog*/

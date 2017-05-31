@@ -1,0 +1,18 @@
+package org.uowt.manager.entity;
+
+import java.util.List;
+
+import org.uowt.front.entity.BusinessInfo;
+import org.uowt.front.entity.Menu;
+
+public class BusinessForm {
+	public List<BusinessInfo> getBuses() {
+		return buses;
+	}
+
+	public void setBuses(List<BusinessInfo> buses) {
+		this.buses = buses;
+	}
+
+	private List<BusinessInfo> buses;
+}

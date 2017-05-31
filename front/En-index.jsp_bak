@@ -1,0 +1,328 @@
+<%@page pageEncoding="utf-8" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!DOCTYPE html>
+<% String sysSrc=request.getContextPath();  %>
+<html>
+	<head>
+		
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,user-scalable=yes" />
+		<link rel="stylesheet" type="text/css" href="${sysSrc}/front/css/reset.css"/>
+		<link href="${sysSrc}/front/css/flickerplate.css"  type="text/css" rel="stylesheet">
+		<link rel="stylesheet" href="${sysSrc}/front/css/indexyw.css" />
+		<link rel="stylesheet" type="text/css" href="${sysSrc}/front/css/zz.css"/>
+		<link rel="stylesheet" href="${sysSrc}/front/css/banner.css" />
+		<link rel="shortcut icon" type="image/x-icon" href="${sysSrc}/front/img/yw-logo.png" media="screen" />
+		<title>China-flame</title>
+	</head>
+	<body class="no-cache">
+
+			
+
+			      
+					   <video width="100%" poster="${sysSrc}/front/img/banner1.png" autoplay="autoplay"  muted="muted"
+						preload="none" controls="controls" class="video">
+							<source src="${sysSrc}/front/video/enyw.mp4"/>
+						</video>
+			       
+
+<div class="header">
+
+	<div class="header-title">
+		<ul>
+			<li><a href="/ywgwen/toEnDetails.do?id=1">
+				<p>Smart Theme Park Solution</p>
+			</a></li>
+			
+			<li><a href="/ywgwen/toEnDetails.do?id=2">
+				<p>Co-brand Credit Card</p>
+			</a></li>
+			
+			<li><a href="/ywgwen/toEnDetails.do?id=3">
+				<p>FinTech Platform Solution</p>
+			</a></li>
+			
+			<li><a href="/ywgwen/toEnDetails.do?id=4">
+				<p>Pro POS    Service</p>
+			</a></li>
+			
+			<li><a href="/ywgwen/toEnDetails.do?id=5">
+				<p>The Belt and Road</p>
+			</a></li>
+			<div class="clearfix">	
+			</div>
+		</ul>
+	</div>
+</div>
+
+<!--about-->
+<div class="about">
+	<div class="about-content">
+		<div class="about-title">
+			<img src="${sysSrc}/front/img/about.png"><img src="${sysSrc}/front/img/about-.png">
+		</div>
+		<div class="about-left">
+			
+			<div class="logo"><img src="${sysSrc}/front/img/logo.png"></div>
+			<div class="logo-left">
+				<p>
+				<strong>CHINA - FLAME FINANCIAL</strong>
+				<span>Shanghai China-Flame Financial Information Services CO.,Ltd.</span> </i><br>
+				
+				Under HK GOLDLAND PROPERTY HOLDING GROUP <br>
+				
+				Affiliated Enterprise of PROSOLAR RESOURCES (600193)<br>
+				
+				Key Block in the field of Consumer Finance of GOLDLAND <br>
+				
+				Leading Position in “ Domestic Fintech Enterprise ”<br>
+				</p>
+			</div>
+			
+			<div class="clearfix"></div>
+		</div>
+		<div class="about-right">
+			<h2>Company Information</h2>
+			<div class="ywewm"><img src="${sysSrc}/front/img/ywewm.png"/></div>
+			<table>
+				<tr>
+					<td>ADD:</td><td>3/D, NO/.898 Puming Road, Shanghai HNA Tower Pudong New Area</td>
+				</tr>
+				<tr>
+					<td>TEL:</td><td>021-6052-9001</td>
+				</tr>
+				<tr>
+					<td>WEB:</td><td>www.china-flame.cn</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+		
+			<div class="clearfix"></div>
+</div>
+
+<!--product line-->
+<div class="product-line">
+	<div class="product-content">
+			<div class="product-title">
+				<img src="${sysSrc}/front/img/ourbusiness.png"><span></span><img src="${sysSrc}/front/img/about-.png" width="650px">
+			</div>
+			<div class="product-li">
+				<ul>
+					<li><a href="${sysSrc}/toEnDetails.do?id=1">
+						<img src="${sysSrc}/front/img/product-left.png" class="product-left">
+						<div class="product-right">
+							<div class="product-right-top">
+								<i><img src="${sysSrc}/front/img/business01.png"></i> <span>Smart Theme Park Division</span>
+							</div>
+							<p>
+								Based on  Happy World Theme Park Project from Group in Fujian Tianzhu 
+Mountain、Yunnan Fuxian Lake and Jiangsu Kunshan Happy World as 
+foundation, combine the experience and technique from Payment & 
+Settlement Services、web internet and mobile net、big data、IoT、advanced 
+communication, develop comprehensive smart city solution with individual 
+intellectual property, and contribute with management abilities、interaction 
+experience、customer sketches and information  integration. 
+
+							</p>
+						</div>
+					</a></li>
+					<li><a href="${sysSrc}/toEnDetails.do?id=2">
+						<img src="${sysSrc}/front/img/product-left.png" class="product-left">
+						<div class="product-right">
+							<div class="product-right-top">
+								<i><img src="${sysSrc}/front/img/business02.png"></i> <span>Smart Financial System Division </span>
+							</div>
+							<p>
+								As customer financial account grading system as business core, support with 
+Card Issue System、Receiving System、Marking and Point System、Mobile 
+Payment System and IoT Financial Information System. Cooperate with bank 
+and financial institution for Services Design、Risk Management、Payment 
+and Settlement、Customer Interest and others, to construct Integrated 
+Financial Services Solution : MaritimePay, for purpose of providing various、
+reliable、and convenient consumer financial services system for CHINA and 
+partners in Asia.
+							</p>
+						</div>
+					</a></li>
+					<li><a href="${sysSrc}/toEnDetails.do?id=3">
+						<img src="${sysSrc}/front/img/product-left.png" class="product-left">
+						<div class="product-right">
+							<div class="product-right-top">
+								<i><img src="${sysSrc}/front/img/business03.png"></i> <span>Co-Branded Credit Card Division </span>
+							</div>
+							<p style="line-height:25px"> 
+								Cooperate with scheme organization (China UnionPay, American Express, 
+Visa, Master), design、development and distribution various of co-branded 
+credit card. Developing cardholder rights and interests, building merchant 
+services and marking activities. Increase the volume of issue、activated rate 
+and contribution per-card. To help bank to strengthen the operation ability.
+							</p>
+						</div>
+					</a></li>
+					<li><a href="${sysSrc}/toEnDetails.do?id=4">
+						<img src="${sysSrc}/front/img/product-left.png" class="product-left">
+						<div class="product-right">
+							<div class="product-right-top">
+								<i><img src="${sysSrc}/front/img/business04.png"></i> <span>POS Receiving Division </span>
+							</div>
+							<p style="line-height:25px">
+								Cooperate with banking industry association、China UnionPay and bank, 
+implement UnionPay directed single receiving system, improve the quality of 
+POS receiving services, reshape market environment, improve payment 
+accepted environment, improve the user experience, promote capital utilization
+of merchant, and responsible for project execution.
+							</p>
+						</div>
+					</a></li>
+				
+				
+						<li><a href="${sysSrc}/toEnDetails.do?id=5">
+						<img src="${sysSrc}/front/img/product-left.png" class="product-left">
+						<div class="product-right">
+							<div class="product-right-top">
+								<i><img src="${sysSrc}/front/img/his.png"></i> <span>The Belt and Road & SDR</span>
+							</div>
+							<p style="line-height:22px">
+								Following closely the Belt and Road Initiative and trend of RMB internationalization, Shanghai China-Flame 
+Financial Services, positively responding to the 13th Five Year Plan of China National Tourism Administration and the policy 
+of the Belt and Road Initiative, plans global layout of consumer finance and strengthens two-way open finance policy so 
+as to promote civil cooperation with joint efforts and lead China's payment to march toward the world.
+							</p>
+						</div>
+					</a></li>
+				</ul>
+			</div>
+	</div>
+
+</div>
+
+<!--case-->
+<div class="aboutthegroup">
+	<div class="aboutthegroup-content">
+		<div class="aboutthegroup-title">
+			<img src="${sysSrc}/front/img/aboutthegroup.png"><span></span><img src="${sysSrc}/front/img/about-.png" width="525">
+		</div>
+		<div class="aboutthegroup-article">
+			GOLDLAND is founded in 1989 in HK as a investment holding group, major administration is located in Shanghai HQ for business in CHINA. 
+After 20 years of steady development, GOLDLAND has grown into a cross-business group in real estate (including residential、commercial 
+complex、high-end hotels and leisure vacation property)、mineral resources and financial investment. Major investment projects in Beijing, 
+Shanghai, Fujian, Yunnan, Hunan, Guangxi and other regions of CHINA. Group has reached billions of assets.
+		</div>
+		<div class="aboutthegroup-li">
+			<ul>
+				<li><a href="javascript:void(0)">
+					<img src="${sysSrc}/front/img/aboutgroup1.png">
+					<em>Real Estate</em>
+				</a></li>
+				
+				<li><a href="javascript:void(0)">
+					<img src="${sysSrc}/front/img/aboutgroup2.png">
+					<em>Mining Industry</em>
+				</a></li>
+				
+				<li><a href="javascript:void(0)">
+					<img src="${sysSrc}/front/img/aboutgroup3.png">
+					<em>Capital Investment</em>
+				</a></li>
+				<li><a href="javascript:void(0)">
+					<img src="${sysSrc}/front/img/aboutgroup4.png">
+					<em>Consumer Finance</em>
+				</a></li>
+			</ul>
+		</div>
+	
+	</div>
+</div>
+
+<!--history-->
+<div class="tower">
+	<div class="tower-content">
+		<div class="tower-title">
+			<img src="${sysSrc}/front/img/towethefuture.png"><span></span><img src="${sysSrc}/front/img/about-.png" width="480">
+		</div>
+		<div class="tower-main"> 
+			<div class="tower-img">
+				<img src="${sysSrc}/front/img/six.png">
+			</div>
+			<div class="tower-article">
+				Shanghai China-Flame Financial Information Services 
+takes the tourism as the major scenario, focus on the 
+improving and innovating technology of payment 
+solution to provide the value-added services for 
+integrate diversified consumer scenarios and captures 
+the big data of the consumer behavior through the 
+cross-border cooperation, promoting the development 
+of consumption finance industry in China, enhancing 
+the consumer experience and stimulating domestic 
+economic growth.
+			</div>
+			<div class="clearfix">
+				
+			</div>
+		</div>
+	</div>
+</div>
+
+<!--footer-->
+<div class="footer">
+	<div class="footer-content">
+			沪ICP备16004486号-2 copyright&copy;&nbsp; 2016&nbsp;www.china-flame.com
+	</div>
+</div>
+	
+	
+<script type="text/javascript" src="${sysSrc}/front/js/jquery-1.11.1.min.js" ></script>
+<script src="${sysSrc}/front/js/jquery-finger-v0.1.0.min.js" type="text/javascript"></script>
+<script src="${sysSrc}/front/js/modernizr.custom.63321.js"></script>
+<script type="text/javascript" src="${sysSrc}/front/js/unslider.min.js" ></script>
+<script>
+$(document).ready(function(){
+$('.flicker-example').flicker();
+ $(".aboutthegroup li").hover(function() {
+  $(this).find("em").stop().animate({opacity: "show", top: "0"}, "fast");
+ }, function() {
+  $(this).find("em").stop().animate({opacity: "hide", top: "-240"}, "fast");
+ });
+
+});
+
+</script>
+<script>
+
+$(document).ready(function(e) {
+
+	  //é¡¶é¨è½®æ­å¾
+    var unslider04 = $('#b04').unslider({
+		speed:1000,
+		delay:2000,
+		dots: true,
+		keys: false,
+		fluid: true
+	}),
+	data04 = unslider04.data('unslider');
+	$('.unslider-arrow04').click(function() {
+        var fn = this.className.split(' ')[1];
+        data04[fn]();
+  });
+});
+</script>
+<script>
+	if (isSafari()) {
+$(window).bind("pageshow", function (event) {
+if (event.originalEvent.persisted && $('body').hasClass("no-cache")) {
+document.body.style.display = "none";
+window.location.reload();
+}
+});
+}
+
+function isSafari() {
+if (navigator.userAgent.indexOf("Safari") > -1) {
+return true;
+}
+return false;
+}
+</script>
+	</body>
+</html>

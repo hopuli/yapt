@@ -1,0 +1,8 @@
+package org.uowt.manager.dao;
+
+import org.uowt.front.entity.FutureInfo;
+
+public interface MngFutureDao {
+	public FutureInfo showFuture();
+	public void updateFuture(FutureInfo futureInfo);
+}

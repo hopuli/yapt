@@ -1,0 +1,5 @@
+package org.uowt.manager.dao;
+
+
+public interface MngHomeDao {
+}

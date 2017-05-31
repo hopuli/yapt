@@ -1,0 +1,29 @@
+package org.uowt.manager.service;
+
+
+import java.util.List;
+
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Service;
+import org.uowt.manager.dao.MngIndexDao;
+import org.uowt.manager.entity.MngMenu;
+
+@Service
+public class MngIndexServiceImpl implements MngIndexService{
+	@Resource
+	private MngIndexDao mngIndexDao;
+	
+	public List<MngMenu> ListMenu() {
+		// TODO Auto-generated method stub
+		List<MngMenu> menus = mngIndexDao.listMenu();
+		return menus;
+	}
+
+	public List<MngMenu> ListTwoMenu(Integer parentId) {
+		// TODO Auto-generated method stub
+		List<MngMenu> menus = mngIndexDao.listTwoMenu(parentId);
+		return menus;
+	}
+
+}

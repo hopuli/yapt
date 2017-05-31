@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/yapt/!svn/ver/2/yapt/src/org/uowt/manager/dao
+END
+MngHomeDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/yapt/!svn/ver/2/yapt/src/org/uowt/manager/dao/MngHomeDao.java
+END
+MngPeopleDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/yapt/!svn/ver/6/yapt/src/org/uowt/manager/dao/MngPeopleDao.java
+END
+MngBusinessDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/yapt/!svn/ver/2/yapt/src/org/uowt/manager/dao/MngBusinessDao.java
+END
+MngCtMenuDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/yapt/!svn/ver/2/yapt/src/org/uowt/manager/dao/MngCtMenuDao.java
+END
+MngPersonalDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/yapt/!svn/ver/2/yapt/src/org/uowt/manager/dao/MngPersonalDao.java
+END
+MngCompanyDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/yapt/!svn/ver/2/yapt/src/org/uowt/manager/dao/MngCompanyDao.java
+END
+MngFutureDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/yapt/!svn/ver/2/yapt/src/org/uowt/manager/dao/MngFutureDao.java
+END
+MngGroupDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/yapt/!svn/ver/2/yapt/src/org/uowt/manager/dao/MngGroupDao.java
+END
+MngNewsDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/yapt/!svn/ver/2/yapt/src/org/uowt/manager/dao/MngNewsDao.java
+END
+MngExportDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/yapt/!svn/ver/2/yapt/src/org/uowt/manager/dao/MngExportDao.java
+END
+MngIndexDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/yapt/!svn/ver/2/yapt/src/org/uowt/manager/dao/MngIndexDao.java
+END
+MngUserDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/yapt/!svn/ver/2/yapt/src/org/uowt/manager/dao/MngUserDao.java
+END

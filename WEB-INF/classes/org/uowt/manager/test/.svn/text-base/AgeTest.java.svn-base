@@ -1,0 +1,14 @@
+package org.uowt.manager.test;
+
+public class AgeTest {
+	
+	public static void  main(String[] args){
+		System.out.println(jsAge(10,82));
+	}
+	public static int jsAge(int p,int n){
+		if(n==0){
+			return p;
+		}
+		return jsAge(p+2,--n);
+	}
+}

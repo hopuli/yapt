@@ -1,0 +1,37 @@
+package org.uowt.manager.controller;
+
+
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.uowt.manager.entity.MngResultBean;
+import org.uowt.manager.entity.MngUser;
+import org.uowt.manager.service.MngPersonalService;
+
+@Controller
+@RequestMapping("mng/personal")
+public class MngPersonalController {
+	@Resource
+	private MngPersonalService personalService;
+	
+	@RequestMapping("toPersonal.do")
+	public String toPersonal(Model model,HttpServletRequest request){
+		MngUser mngUser = (MngUser) request.getSession().getAttribute("mngUser");
+		model.addAttribute("mngUser", mngUser);
+		return "manager/personal";
+	}
+	
+	@RequestMapping("updatePersonal.do")
+	@ResponseBody
+	public MngResultBean updatePersonal(MngUser mngUser,HttpServletRequest request){
+		MngResultBean result = new MngResultBean();
+		personalService.updatePersonal(mngUser);
+		//MngUser new_user = personalService.showUser(mngUser.getUser_id());
+		request.getSession().setAttribute("mngUser", mngUser);
+		return result;
+	}
+}

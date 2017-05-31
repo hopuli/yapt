@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/yapt/!svn/ver/2/yapt/src/org/uowt/manager/sql
+END
+MngBusinessMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/yapt/!svn/ver/2/yapt/src/org/uowt/manager/sql/MngBusinessMapper.xml
+END
+MngCtMenuMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/yapt/!svn/ver/2/yapt/src/org/uowt/manager/sql/MngCtMenuMapper.xml
+END
+MngPersonalMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/yapt/!svn/ver/2/yapt/src/org/uowt/manager/sql/MngPersonalMapper.xml
+END
+MngCompanyMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/yapt/!svn/ver/2/yapt/src/org/uowt/manager/sql/MngCompanyMapper.xml
+END
+MngFutureMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/yapt/!svn/ver/2/yapt/src/org/uowt/manager/sql/MngFutureMapper.xml
+END
+MngGroupMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/yapt/!svn/ver/2/yapt/src/org/uowt/manager/sql/MngGroupMapper.xml
+END
+MngNewsMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/yapt/!svn/ver/2/yapt/src/org/uowt/manager/sql/MngNewsMapper.xml
+END
+MngIndexMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/yapt/!svn/ver/2/yapt/src/org/uowt/manager/sql/MngIndexMapper.xml
+END
+MngUserMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/yapt/!svn/ver/2/yapt/src/org/uowt/manager/sql/MngUserMapper.xml
+END
+MngHomeMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/yapt/!svn/ver/2/yapt/src/org/uowt/manager/sql/MngHomeMapper.xml
+END
+MngPeopleMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/yapt/!svn/ver/6/yapt/src/org/uowt/manager/sql/MngPeopleMapper.xml
+END

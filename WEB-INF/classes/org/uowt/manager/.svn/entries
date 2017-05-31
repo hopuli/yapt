@@ -1,0 +1,55 @@
+10
+
+dir
+4
+http://58.246.52.102:81/svn/yapt/yapt/src/org/uowt/manager
+http://58.246.52.102:81/svn/yapt
+
+
+
+2017-04-21T03:03:26.116101Z
+2
+lx
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+717cf9c2-fef2-474f-9c02-ccd57098ec2c
+
+Listener
+dir
+
+controller
+dir
+
+dao
+dir
+
+entity
+dir
+
+interceptor
+dir
+
+service
+dir
+
+sql
+dir
+
+test
+dir
+
+util
+dir
+

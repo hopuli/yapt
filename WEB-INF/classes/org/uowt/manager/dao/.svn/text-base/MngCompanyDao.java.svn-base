@@ -1,0 +1,9 @@
+package org.uowt.manager.dao;
+
+import org.uowt.front.entity.CompanyInfo;
+
+public interface MngCompanyDao {
+	public CompanyInfo showCompanyInfo();
+	public void updateCompanyInfo(CompanyInfo comInfo);
+	public void updateVideo(String videourl);
+}	

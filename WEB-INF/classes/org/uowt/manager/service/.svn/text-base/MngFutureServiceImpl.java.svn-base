@@ -1,0 +1,23 @@
+package org.uowt.manager.service;
+
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Service;
+import org.uowt.front.entity.FutureInfo;
+import org.uowt.manager.dao.MngFutureDao;
+
+@Service
+public class MngFutureServiceImpl implements MngFutureService{
+	@Resource
+	private MngFutureDao dao;
+	
+	public FutureInfo showFuture() {
+		// TODO Auto-generated method stub
+		return dao.showFuture();
+	}
+
+	public void updateFuture(FutureInfo futureInfo) {
+		// TODO Auto-generated method stub
+		dao.updateFuture(futureInfo);
+	}
+}

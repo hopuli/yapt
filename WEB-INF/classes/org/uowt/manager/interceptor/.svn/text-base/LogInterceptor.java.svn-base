@@ -1,0 +1,25 @@
+package org.uowt.manager.interceptor;
+
+import org.aspectj.lang.annotation.After;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
+
+@Aspect
+@Component
+public class LogInterceptor {
+	private final Logger logger = LoggerFactory.getLogger(LogInterceptor.class);
+	@Before(value = "execution(* org.uowt.manager.controller.*.*(..))") 
+	public void before(){
+		
+		logger.info("controller start!");
+	}
+	
+	@After(value = "execution(* org.uowt.manager.controller.*.*(..))") 
+	public void after(){
+		logger.info("controller end!");
+		
+	}
+}

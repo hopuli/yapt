@@ -1,0 +1,11 @@
+package org.uowt.manager.service;
+
+import java.util.List;
+
+import org.uowt.manager.entity.MngMenu;
+
+
+public interface MngIndexService {
+	public List<MngMenu> ListMenu();
+	public List<MngMenu> ListTwoMenu(Integer parentId);
+}

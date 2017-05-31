@@ -1,0 +1,8 @@
+package org.uowt.manager.service;
+
+import org.uowt.front.entity.FutureInfo;
+
+public interface MngFutureService {
+	public FutureInfo showFuture();
+	public void updateFuture(FutureInfo futureInfo);
+}

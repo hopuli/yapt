@@ -1,0 +1,188 @@
+package org.uowt.manager.controller;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.annotation.Resource;
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.poi.hssf.usermodel.HSSFCell;
+import org.apache.poi.hssf.usermodel.HSSFCellStyle;
+import org.apache.poi.hssf.usermodel.HSSFFont;
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.view.document.AbstractExcelView;
+import org.uowt.front.entity.PeopleInfo;
+import org.uowt.manager.entity.MngResultBean;
+import org.uowt.manager.service.ExportExcelService;
+import org.uowt.manager.service.MngExportService;
+import org.uowt.manager.service.MngPeopleService;
+import org.uowt.manager.util.PageData;
+
+@Controller
+@RequestMapping("mng/people")
+public class MngPeopleController extends AbstractExcelView{  
+	@Resource 
+	private MngPeopleService mngPeopleService;
+	
+    @Override  
+    protected void buildExcelDocument(Map<String, Object> model,  
+            HSSFWorkbook workbook, HttpServletRequest request,  
+            HttpServletResponse response) throws Exception {  
+        // TODO Auto-generated method stub  
+        Date date = new Date();  
+        String filename = "peoples";  
+        HSSFSheet sheet;  
+        HSSFCell cell;  
+        response.setCharacterEncoding("utf-8");  
+        response.setContentType("application/octet-stream");  
+        response.setHeader("Content-disposition", "attachment;filename="+filename+".xls");  
+        sheet = workbook.createSheet("sheet1");  
+          
+        List<String> titles = (List<String>) model.get("titles");  
+        int len = titles.size();  
+        HSSFCellStyle headerStyle = workbook.createCellStyle(); //标题样式  
+        headerStyle.setAlignment(HSSFCellStyle.ALIGN_CENTER);  
+        headerStyle.setVerticalAlignment(HSSFCellStyle.VERTICAL_CENTER);  
+        HSSFFont headerFont = workbook.createFont();    //标题字体  
+        headerFont.setBoldweight(HSSFFont.BOLDWEIGHT_BOLD);  
+        headerFont.setFontHeightInPoints((short)11);  
+        headerStyle.setFont(headerFont);  
+        short width = 20,height=25*20;  
+        sheet.setDefaultColumnWidth(width);  
+        for(int i=0; i<len; i++){ //设置标题  
+            String title = titles.get(i);  
+            cell = getCell(sheet, 0, i);  
+            cell.setCellStyle(headerStyle);  
+            setText(cell,title);  
+        }  
+        sheet.getRow(0).setHeight(height);  
+          
+        HSSFCellStyle contentStyle = workbook.createCellStyle(); //内容样式  
+        contentStyle.setAlignment(HSSFCellStyle.ALIGN_CENTER);  
+        List<PeopleInfo> varList = (List<PeopleInfo>) model.get("varList");  
+        int varCount = varList.size();  
+        for(int i=0; i<varCount; i++){  
+            PeopleInfo p = varList.get(i);  
+            for(int j=0;j<len;j++){  
+                String varstr = "";
+                if(j==0){
+                	varstr = p.getName();
+                }
+                if(j==1){
+                	varstr = p.getPhone();  
+                }
+                if(j==2){
+                	varstr = p.getMail();  
+                }
+                cell = getCell(sheet, i+1, j);  
+                cell.setCellStyle(contentStyle);  
+                setText(cell,varstr);  
+            }  
+              
+        } 
+          
+    }  
+  
+ 
+
+
+	@Resource
+	private MngExportService mngExportService;
+
+	/** 
+     * 导出Excel 
+     * @return 
+     * @throws Exception 
+     */  
+    @RequestMapping("/exportXLS.do")  
+    public ModelAndView exportExcel()throws Exception{  
+        ModelAndView mv = new ModelAndView();  
+        Map<String,Object> dataMap = new HashMap<String,Object>();  
+        List<String> titles = new ArrayList<String>();  
+        titles.add("姓名");  
+        titles.add("邮箱");  
+        titles.add("电话");  
+        dataMap.put("titles", titles);  
+        List<PeopleInfo> varList = mngPeopleService.findAllPeople();  
+        dataMap.put("varList", varList);  
+        MngPeopleController erv = new MngPeopleController();  
+        mv = new ModelAndView(erv,dataMap);  
+        return mv;  
+    }
+    
+    @Resource  
+    private ExportExcelService service;  
+  
+    @RequestMapping("/exportXLSX.do")  
+    public String exportExcel(HttpServletResponse response)  
+    {  
+        response.setContentType("application/binary;charset=ISO8859_1");  
+        try  
+        {  
+            ServletOutputStream outputStream = response.getOutputStream();  
+            String fileName = new String(("人员名单").getBytes(), "ISO8859_1");  
+            response.setHeader("Content-disposition", "attachment; filename=" + fileName + ".xlsx");// 组装附件名称和格式  
+            String hql = "from Goods";  
+            String[] titles = { "姓名", "邮箱", "电话" };  
+            service.exportExcel(hql, titles, outputStream);  
+        }  
+        catch (IOException e)  
+        {  
+            e.printStackTrace();  
+        }  
+        return null;  
+    }  
+    @RequestMapping("findAllPeople")
+    @ResponseBody
+    public MngResultBean showPeople(){
+    	List<PeopleInfo> peoples = mngPeopleService.findAllPeople();
+    	MngResultBean result = new MngResultBean();
+    	result.setMsg("查询成功！");
+    	result.setData(peoples);
+    	result.setStatus(0);
+    	return result;
+    }
+    
+    @RequestMapping("addPeople")
+    @ResponseBody
+    public MngResultBean addPeople(PeopleInfo peopleInfo){
+    	mngPeopleService.addPeople(peopleInfo);
+    	MngResultBean result = new MngResultBean();
+    	result.setMsg("添加成功！");
+    	result.setStatus(0);
+    	return result;
+    }
+    
+    @RequestMapping("deletePeople")
+    @ResponseBody
+    public MngResultBean deletePeople(Integer id){
+    	mngPeopleService.deletePeople(id);
+    	MngResultBean result = new MngResultBean();
+    	result.setMsg("删除成功！");
+    	result.setStatus(0);
+    	return result;
+    }
+    
+    @RequestMapping("findByName")
+    @ResponseBody
+    public MngResultBean findByName(String name){
+    	PeopleInfo peopleInfo = mngPeopleService.findPeopleByName(name);
+    	MngResultBean result = new MngResultBean();
+    	result.setMsg("查询成功！");
+    	result.setData(peopleInfo);
+    	result.setStatus(0);
+    	return result;
+    }
+}
+    

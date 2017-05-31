@@ -1,0 +1,12 @@
+package org.uowt.manager.dao;
+
+import java.util.List;
+
+import org.uowt.front.entity.PeopleInfo;
+
+public interface MngPeopleDao {
+	public List<PeopleInfo> findAllPeople();
+	public void addPeople(PeopleInfo peopleInfo);
+	public void deletePeople(Integer id);
+	public PeopleInfo findPeopleByName(String name);
+}

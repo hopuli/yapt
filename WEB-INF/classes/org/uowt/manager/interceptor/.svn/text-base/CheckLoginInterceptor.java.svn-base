@@ -1,0 +1,39 @@
+package org.uowt.manager.interceptor;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.web.servlet.HandlerInterceptor;
+import org.springframework.web.servlet.ModelAndView;
+import org.uowt.manager.entity.MngUser;
+
+import com.sun.java.swing.plaf.windows.resources.windows;
+
+public class CheckLoginInterceptor implements HandlerInterceptor{
+
+	public void afterCompletion(HttpServletRequest arg0,
+			HttpServletResponse arg1, Object arg2, Exception arg3)
+			throws Exception {
+	}
+
+	public void postHandle(HttpServletRequest arg0, HttpServletResponse arg1,
+			Object arg2, ModelAndView arg3) throws Exception {
+	}
+
+	public boolean preHandle(HttpServletRequest request, HttpServletResponse response,
+			Object arg2) throws Exception {
+		MngUser mngUser = (MngUser) request.getSession().getAttribute("mngUser");
+		if(mngUser!=null){
+			request.getSession().setAttribute("mngUser", mngUser);
+			request.getSession().setMaxInactiveInterval(1800);
+			//request.getSession().setAttribute("sysSrc", request.getContextPath());
+			return true;
+		}
+		request.setAttribute("login_timeout", "用户未登录或登录失效，请重新登录！");
+		String sysSrc = request.getContextPath();
+		response.getWriter().write("<script>window.open('"+sysSrc+"/mng/login?login_timeout=1','_top')</script>");
+		//response.sendRedirect("<script>window.open('http://www.baidu.com','_top')</script>");
+		//request.getRequestDispatcher("<script>window.open('http://www.baidu.com','_top')</script>").forward(request, response);
+		return false;
+	}
+}

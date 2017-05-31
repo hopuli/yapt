@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="org.uowt.manager.dao.MngCompanyDao">
+	<select id="showCompanyInfo" resultType="org.uowt.front.entity.CompanyInfo">
+		select * from company
+	</select>
+	<update id="updateVideo" parameterType="string">
+		update company set videourl=#{videourl}
+	</update>
+							
+	<update id="updateCompanyInfo" parameterType="org.uowt.front.entity.CompanyInfo">
+		update company set address=#{address},telephone=#{telephone},weburl=#{weburl}, 
+			fullname=#{fullname},name=#{name},introduction=#{introduction},copyright=#{copyright}
+			<if test="logo!=null" >
+				,logo=#{logo}
+			</if>
+			<if test="qrcode">
+				,qrcode=#{qrcode}
+			</if>
+		where id=1
+	</update>
+</mapper>
+
+
+

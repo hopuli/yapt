@@ -1,0 +1,32 @@
+package org.uowt.manager.service;
+
+import java.util.List;
+
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Service;
+import org.uowt.front.entity.BusinessInfo;
+import org.uowt.manager.dao.MngBusinessDao;
+
+@Service
+public class MngBusinessServiceImpl implements MngBusinessService{
+	@Resource
+	private MngBusinessDao dao;
+	public List<BusinessInfo> showBusiness() {
+		// TODO Auto-generated method stub
+		return dao.showBusiness();
+	}
+	public BusinessInfo findBusById(Integer id) {
+		// TODO Auto-generated method stub
+		return dao.findBusById(id);
+	}
+	public void updateBus(BusinessInfo busInfo) {
+		// TODO Auto-generated method stub
+		dao.updateBus(busInfo);
+	}
+	public void updateBuses(List<BusinessInfo> busesInfo) {
+		// TODO Auto-generated method stub
+		dao.updateBuses(busesInfo);
+	}
+	
+}

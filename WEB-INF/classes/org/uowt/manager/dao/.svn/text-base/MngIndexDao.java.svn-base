@@ -1,0 +1,11 @@
+package org.uowt.manager.dao;
+
+import java.util.List;
+
+import org.uowt.manager.entity.MngMenu;
+
+
+public interface MngIndexDao {
+	public List<MngMenu> listMenu();
+	public List<MngMenu> listTwoMenu(Integer parentId);
+}

@@ -1,0 +1,13 @@
+package org.uowt.manager.dao;
+
+import java.util.List;
+
+import org.uowt.manager.entity.MngUser;
+
+
+public interface MngUserDao {
+	public MngUser findByName(String username);
+	public List<MngUser> showUsers();
+	public MngUser showUser(Integer user_id);
+	public void updateUser(MngUser mngUser);
+}

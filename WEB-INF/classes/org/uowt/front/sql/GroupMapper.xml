@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="org.uowt.front.dao.GroupDao">
+	<select id="showGroup" resultMap="resultGroupInfo">
+		select * from group_index;
+	</select>
+	
+	<resultMap type="org.uowt.front.entity.GroupInfo" id="resultGroupInfo">
+		<collection property="gimgs" ofType="org.uowt.front.entity.GroupImg" column="id" select="showGroupImg">
+			<result property="url" column="url"/>
+			<result property="moudle" column="moudle"/> 
+		</collection>
+	</resultMap>
+	
+	<select id="showGroupImg" resultType="org.uowt.front.entity.GroupImg">select * from group_img;</select>
+</mapper>
+
+
+

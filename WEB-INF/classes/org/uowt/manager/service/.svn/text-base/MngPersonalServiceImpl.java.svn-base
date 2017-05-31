@@ -1,0 +1,23 @@
+package org.uowt.manager.service;
+
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Service;
+import org.uowt.manager.dao.MngPersonalDao;
+import org.uowt.manager.entity.MngUser;
+
+
+@Service
+public class MngPersonalServiceImpl implements MngPersonalService{
+	
+	@Resource
+	private MngPersonalDao dao;
+	public MngUser showUser(Integer user_id) {
+		// TODO Auto-generated method stub
+		return dao.showUser(user_id);
+	}
+	public MngUser updatePersonal(MngUser mngUser) {
+		// TODO Auto-generated method stub
+		return dao.updatePersonal(mngUser);
+	}
+}

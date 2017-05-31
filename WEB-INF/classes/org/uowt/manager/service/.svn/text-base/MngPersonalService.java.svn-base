@@ -1,0 +1,9 @@
+package org.uowt.manager.service;
+
+
+import org.uowt.manager.entity.MngUser;
+
+public interface MngPersonalService {
+	public MngUser showUser(Integer user_id);
+	public MngUser updatePersonal(MngUser mngUser);
+}

@@ -1,0 +1,12 @@
+package org.uowt.manager.service;
+
+import java.util.List;
+
+import org.uowt.front.entity.BusinessInfo;
+
+public interface MngBusinessService {
+	public List<BusinessInfo> showBusiness();
+	public BusinessInfo findBusById(Integer id);
+	public void updateBus(BusinessInfo busInfo);
+	public void updateBuses(List<BusinessInfo>  busesInfo);
+}

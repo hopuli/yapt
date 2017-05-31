@@ -1,0 +1,23 @@
+package org.uowt.manager.Listener;
+
+import javax.servlet.ServletContextEvent;
+import javax.servlet.ServletContextListener;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+public class InitBasePathListener implements ServletContextListener{
+	
+	private static final Logger Log = LoggerFactory.getLogger(InitBasePathListener.class);
+	
+	public void contextDestroyed(ServletContextEvent arg0) {
+		// TODO Auto-generated method stub
+		Log.info("Servlet context destroyed.");
+	}
+	public void contextInitialized(ServletContextEvent sce) {
+		// TODO Auto-generated method stub
+		String sysSrc = sce.getServletContext().getContextPath();
+		sce.getServletContext().setAttribute("sysSrc", sysSrc);
+		Log.info("Servlet context initialized."); 
+	}
+}

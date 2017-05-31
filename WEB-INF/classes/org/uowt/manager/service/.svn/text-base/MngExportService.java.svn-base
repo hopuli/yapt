@@ -1,0 +1,9 @@
+package org.uowt.manager.service;
+
+import java.util.List;
+
+import org.uowt.manager.util.PageData;
+
+public interface MngExportService{
+	public List<PageData> listM(PageData pd) throws Exception;
+}

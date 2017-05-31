@@ -1,0 +1,14 @@
+package org.uowt.manager.service;
+
+import org.uowt.front.entity.GroupImg;
+import org.uowt.front.entity.GroupInfo;
+
+public interface MngGroupService {
+	public GroupInfo showGroup();
+	public void updateContent(GroupInfo groupInfo);
+	public void updateGroupImg(GroupImg gimg);
+	public GroupImg findGroupImgById(Integer id);
+	
+	public void addGroupImg();
+	public void deleteGroupImg();
+}

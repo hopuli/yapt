@@ -1,0 +1,22 @@
+package org.uowt.manager.service;
+
+import java.util.List;
+
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Service;
+import org.uowt.manager.dao.MngNewsDao;
+import org.uowt.manager.entity.MngNewsType;
+
+@Service
+public class MngNewsServiceImpl implements MngNewsService{
+	@Resource
+	private MngNewsDao dao;
+	public List<MngNewsType> findNewsType() {
+		return dao.findNewsType();
+	}
+	public List<MngNewsType> findNewsTypeTwo(Integer parentid) {
+		return dao.findNewsTypeTwo(parentid);
+	}
+	
+}

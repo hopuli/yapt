@@ -1,0 +1,15 @@
+package org.uowt.manager.dao;
+
+import java.util.List;
+
+import org.uowt.front.entity.Menu;
+
+public interface MngCtMenuDao {
+	public List<Menu> listMenuOne();
+	public List<Menu> listMenuTwo(Integer parentId);
+	public void updateMenu(List<Menu> ctMenus);
+	public void deleteTwoMenu(Integer menuId);
+	public void addTwoMenu(Menu twoMenu);
+	public Menu findById(Integer id);
+	public void editMenu(Menu menu);
+}
